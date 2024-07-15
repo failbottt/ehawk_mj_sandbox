@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+### Ehawk React Sandbox
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_preface: I realize all of these issues could be PEBKAC errors and if they are I apologize. That said, I appreciate your time._
 
-## Available Scripts
+##### The problems:
 
-In the project directory, you can run:
+It seems ehawk has issues running in a React environment.
+ 
+1. Inside of our application we encountered an infinite loop. When I initialized the ehawk code it would the run the function and then never exit. Unfortunately, I'm unable to recreate that problem in this demo due to another issue (see #2).
 
-### `npm start`
+2. `TypeError: e.toUTCString is not a function`: (I've included an image of the console output for that error). This happens whenever the local dev server starts. I'm confused as to why, because all I do is wrap your code in my own function and then call it (which you can see in the `/src` directory).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+###### How to recreate
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I tried to create the simplest implementation possible to share with you. 
 
-### `npm test`
+I realize the words "simple" and "react" don't belong in the same sentence, but with docker it "should just work"(TM).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Go to `src/ehawk_6_0_7.js` and follow the instructions there.
 
-### `npm run build`
+2. (build dev server) `docker build -t ehawk_mj_sandbox .`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. (run dev server) `docker run -it -p 3000:3000 ehawk_mj_sandbox`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Open your browser and go to `localhost:3000`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Inspect the page and you should see `TypeError: e.toUTCString is not a function`
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Again, I apologize I wasn't able to recreate the infinite loop problem. Maybe it will show up for you all, but I wasn't able to get that far due to the `toUTCString is not a function` error.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Any help is greatly appreciated.
